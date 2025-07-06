@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import transactionRoutes from "./routes/transaction.route.js"; // Import transaction routes
+import transactionRoutes from "./routes/transaction.route.js";
+import budgetRoutes from "./routes/budget.route.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 app.use("/api/transaction", transactionRoutes);
+app.use("/api/budget",budgetRoutes)
 mongoose
     .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
